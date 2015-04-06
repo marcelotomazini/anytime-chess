@@ -11,7 +11,7 @@
 		<maven.compiler.source>1.6</maven.compiler.source>
 		<maven.compiler.target>1.6</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<android.sdk.path>~/development/tools/android/sdk</android.sdk.path>
+		<android.sdk.path>/home/marcelo.tomazini/development/tools/android/sdk</android.sdk.path>
 	</properties>
 	
 	<scm>
@@ -30,6 +30,12 @@
 				<scope>provided</scope>
 			</dependency>
 		
+			<dependency>
+				<groupId>com.android.support</groupId>
+				<artifactId>support-v4</artifactId>
+				<version>22.0.0</version>
+				<type>aar</type>
+			</dependency>
 			<dependency>
 				<groupId>com.android.support</groupId>
 				<artifactId>appcompat-v7</artifactId>
