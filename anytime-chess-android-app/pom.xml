@@ -27,20 +27,18 @@
 			<version>${project.version}</version>
 		</dependency>
 
-<!-- 		<dependency> -->
-<!-- 			<groupId>com.google.android</groupId> -->
-<!-- 			<artifactId>android</artifactId> -->
-<!-- 			<scope>provided</scope> -->
-<!-- 		</dependency> -->
+		<dependency>
+			<groupId>com.google.android</groupId>
+			<artifactId>android</artifactId>
+			<scope>provided</scope>
+		</dependency>
 		<dependency>
 			<groupId>com.android.support</groupId>
 			<artifactId>support-v4</artifactId>
-			<type>aar</type>
 		</dependency>
 		<dependency>
 			<groupId>com.android.support</groupId>
 			<artifactId>appcompat-v7</artifactId>
-			<type>aar</type>
 		</dependency>
 
 	</dependencies>
