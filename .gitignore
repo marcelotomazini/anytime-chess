@@ -6,3 +6,7 @@ bin
 .project
 target
 .idea
+local.properties
+**.iml
+gradle
+gradlew*
