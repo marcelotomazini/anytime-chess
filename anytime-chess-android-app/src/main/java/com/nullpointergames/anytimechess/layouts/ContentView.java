@@ -54,4 +54,13 @@ public class ContentView extends DrawerLayout {
 		return recyclerView;
 	}
 
+    public void load(String player) {
+        try {
+            gameStatusLayout.load(player);
+            boardLayout.load(player);
+            buttonsLayout.load(player);
+        } catch (Exception e) {
+        }
+    }
+
 }

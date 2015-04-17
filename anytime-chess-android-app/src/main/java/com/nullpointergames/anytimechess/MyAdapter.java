@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 
 import com.nullpointergames.anytimechess.layouts.Header;
 import com.nullpointergames.anytimechess.layouts.Item;
+import com.nullpointergames.anytimechess.utils.TelephonyUtils;
 
 import java.util.List;
 
@@ -15,7 +16,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private static final int TYPE_HEADER = 0;
     private static final int TYPE_ITEM = 1;
 
-    private List<String> mNavTitles;
+    final private List<String> mNavTitles;
+    final private AnytimeChessActivity activity;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         int Holderid;
@@ -37,8 +39,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
 
 
-    MyAdapter(List<String> titles){
+    MyAdapter(List<String> titles, AnytimeChessActivity activity){
         mNavTitles = titles;
+        this.activity = activity;
     }
 
     @Override
@@ -55,8 +58,22 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(MyAdapter.ViewHolder holder, int position) {
-        if(holder.Holderid ==1)
-            holder.textView.setText(mNavTitles.get(position - 1));
+        if(holder.Holderid ==1) {
+            holder.textView.setText(TelephonyUtils.resolvePlayerName(holder.textView.getContext(), mNavTitles.get(position - 1)));
+            holder.textView.setOnClickListener(openGame(mNavTitles.get(position - 1)));
+        }
+    }
+
+    private View.OnClickListener openGame(final String player) {
+        return new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+                MyAdapter.this.
+                activity.getDrawer().load(player);
+                activity.getDrawer().closeDrawers();
+            }
+        };
     }
 
     @Override

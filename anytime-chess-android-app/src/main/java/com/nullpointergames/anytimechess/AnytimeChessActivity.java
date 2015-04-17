@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -30,7 +29,7 @@ public class AnytimeChessActivity extends ActionBarActivity {
 
     public static final int PICK_CONTACT_REQUEST = 1;
     RecyclerView mRecyclerView;
-    DrawerLayout drawer;
+    ContentView drawer;
     ActionBarDrawerToggle mDrawerToggle;
 
     @Override
@@ -40,14 +39,14 @@ public class AnytimeChessActivity extends ActionBarActivity {
         drawer = new ContentView(this);
         setContentView(drawer);
 
-        setSupportActionBar(((ContentView) drawer).getToolbar());
+        setSupportActionBar(drawer.getToolbar());
 
-        mRecyclerView = ((ContentView) drawer).getRecyclerView();
-        mRecyclerView.setAdapter(new MyAdapter(getGames()));
+        mRecyclerView = drawer.getRecyclerView();
+        mRecyclerView.setAdapter(new MyAdapter(getGames(), this));
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setHasFixedSize(true);
 
-        mDrawerToggle = new ActionBarDrawerToggle(this, drawer, ((ContentView) drawer).getToolbar(), R.string.openDrawer, R.string.closeDrawer){
+        mDrawerToggle = new ActionBarDrawerToggle(this, drawer, drawer.getToolbar(), R.string.openDrawer, R.string.closeDrawer){
 
             @Override
             public void onDrawerOpened(View drawerView) {
@@ -136,4 +135,8 @@ public class AnytimeChessActivity extends ActionBarActivity {
 	        }
 	    }
 	}
+
+    public ContentView getDrawer() {
+        return drawer;
+    }
 }

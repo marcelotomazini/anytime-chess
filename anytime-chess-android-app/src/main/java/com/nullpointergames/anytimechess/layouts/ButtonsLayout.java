@@ -2,6 +2,7 @@ package com.nullpointergames.anytimechess.layouts;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.view.Gravity;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import com.nullpointergames.anytimechess.comm.message.GiveUp;
@@ -18,6 +19,8 @@ public class ButtonsLayout extends LinearLayout {
 
 	public ButtonsLayout(Context context) {
 		super(context);
+        setGravity(Gravity.CENTER);
+
 		alerts = new Alerts(getContext());
 	}
 
