@@ -34,4 +34,8 @@ public abstract class Messages {
 			return '!' + key + '!';
 		}
 	}
+
+    public static final String NEW_GAME = "new.game";
+    public static final String ABOUT = "about";
+    public static final String GAMES_IN_PROGRESS = "games.in.progress";
 }

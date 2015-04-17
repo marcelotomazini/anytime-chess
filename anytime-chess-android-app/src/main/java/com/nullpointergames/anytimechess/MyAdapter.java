@@ -1,16 +1,13 @@
 package com.nullpointergames.anytimechess;
 
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.nullpointergames.anytimechess.layouts.Header;
 import com.nullpointergames.anytimechess.layouts.Item;
+
+import java.util.List;
 
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
@@ -18,7 +15,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private static final int TYPE_HEADER = 0;
     private static final int TYPE_ITEM = 1;
 
-    private String mNavTitles[];
+    private List<String> mNavTitles;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         int Holderid;
@@ -40,20 +37,18 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
 
 
-    MyAdapter(String Titles[]){
-        mNavTitles = Titles;
+    MyAdapter(List<String> titles){
+        mNavTitles = titles;
     }
 
     @Override
     public MyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == TYPE_ITEM) {
             View v = new Item(parent.getContext());
-            ViewHolder vhItem = new ViewHolder(v,viewType);
-            return vhItem;
+            return new ViewHolder(v,viewType);
         } else if (viewType == TYPE_HEADER) {
             View v = new Header(parent.getContext());
-            ViewHolder vhHeader = new ViewHolder(v,viewType);
-            return vhHeader;
+            return new ViewHolder(v,viewType);
         }
         return null;
     }
@@ -61,12 +56,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(MyAdapter.ViewHolder holder, int position) {
         if(holder.Holderid ==1)
-            holder.textView.setText(mNavTitles[position - 1]);
+            holder.textView.setText(mNavTitles.get(position - 1));
     }
 
     @Override
     public int getItemCount() {
-        return mNavTitles.length+1;
+        return mNavTitles.size() + 1;
     }
 
     @Override

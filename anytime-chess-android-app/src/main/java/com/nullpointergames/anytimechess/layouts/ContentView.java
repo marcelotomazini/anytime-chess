@@ -2,13 +2,9 @@ package com.nullpointergames.anytimechess.layouts;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.Path;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.RecyclerView;
-import android.text.Layout;
 import android.view.Gravity;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -16,26 +12,29 @@ import android.widget.TextView;
 public class ContentView extends DrawerLayout {
 
 	private NPGToolbar toolbar;
-    private LinearLayout linearLayout;
     private RecyclerView recyclerView;
+    private BoardLayout boardLayout;
+    private GameStatusLayout gameStatusLayout;
+    private ButtonsLayout buttonsLayout;
 
 	public ContentView(Context context) {
 		super(context);
         RelativeLayout.LayoutParams params1 = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
         setLayoutParams(params1);
-        setElevation(7);
 
 		toolbar = new NPGToolbar(context);
+        boardLayout = new BoardLayout(context);
+        gameStatusLayout = new GameStatusLayout(getContext());
+        buttonsLayout = new ButtonsLayout(getContext());
 
-        linearLayout = new LinearLayout(context);
+        LinearLayout linearLayout = new LinearLayout(context);
         linearLayout.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
         linearLayout.setOrientation(LinearLayout.VERTICAL);
 
-        TextView textView = new TextView(context);
-        textView.setText("opa");
-
         linearLayout.addView(toolbar);
-        linearLayout.addView(textView);
+        linearLayout.addView(boardLayout);
+        linearLayout.addView(gameStatusLayout);
+        linearLayout.addView(buttonsLayout);
 
         recyclerView = new RecyclerView(context);
         recyclerView.setBackgroundColor(Color.WHITE);
