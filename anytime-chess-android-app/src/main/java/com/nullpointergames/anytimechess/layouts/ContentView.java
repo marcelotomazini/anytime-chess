@@ -33,8 +33,8 @@ public class ContentView extends DrawerLayout {
 
         linearLayout.addView(toolbar);
         linearLayout.addView(boardLayout);
-        linearLayout.addView(gameStatusLayout);
         linearLayout.addView(buttonsLayout);
+        linearLayout.addView(gameStatusLayout);
 
         recyclerView = new RecyclerView(context);
         recyclerView.setBackgroundColor(Color.WHITE);
@@ -60,6 +60,7 @@ public class ContentView extends DrawerLayout {
             boardLayout.load(player);
             buttonsLayout.load(player);
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

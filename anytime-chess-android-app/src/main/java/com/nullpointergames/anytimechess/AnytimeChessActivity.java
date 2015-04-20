@@ -1,5 +1,7 @@
 package com.nullpointergames.anytimechess;
 
+import static com.nullpointergames.anytimechess.utils.Preferences.PLAYER;
+
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.database.Cursor;
@@ -135,6 +137,20 @@ public class AnytimeChessActivity extends ActionBarActivity {
 	        }
 	    }
 	}
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadGame();
+    }
+
+    private void loadGame() {
+        Bundle extras = getIntent().getExtras();
+        if (extras == null || extras.getString(PLAYER) == null)
+            return;
+
+        drawer.load(extras.getString(PLAYER));
+    }
 
     public ContentView getDrawer() {
         return drawer;

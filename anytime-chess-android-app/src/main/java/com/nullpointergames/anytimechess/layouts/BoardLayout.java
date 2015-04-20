@@ -21,7 +21,6 @@ public class BoardLayout extends GridView {
 
 	private State state;
 	private String player;
-	private GameStatusLayout status;
 
 	private final List<PieceView> pieces = new ArrayList<PieceView>();
 	private PieceView selectedPiece;
@@ -71,8 +70,6 @@ public class BoardLayout extends GridView {
 				parent.removeAllViews();
 			item.addView(pieceView);
 		}
-
-		status.refresh();
 	}
 
 	private void createPieces() {
@@ -168,10 +165,6 @@ public class BoardLayout extends GridView {
 
 			return true;
 		}
-	}
-
-	public void setStatus(GameStatusLayout status) {
-		this.status = status;
 	}
 
 	private Color getMyColor() {
