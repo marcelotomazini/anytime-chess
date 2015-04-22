@@ -48,7 +48,12 @@ public class AnytimeChessActivity extends ActionBarActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setHasFixedSize(true);
 
-        mDrawerToggle = new ActionBarDrawerToggle(this, drawer, drawer.getToolbar(), R.string.openDrawer, R.string.closeDrawer){
+        mDrawerToggle = new ActionBarDrawerToggle(
+                this,
+                drawer,
+                drawer.getToolbar(),
+                getResources().getIdentifier("open_drawer", "strings", getPackageName()),
+                getResources().getIdentifier("close_drawer", "strings", getPackageName())){
 
             @Override
             public void onDrawerOpened(View drawerView) {
