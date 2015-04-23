@@ -1,5 +1,5 @@
-STORE_FILE=/home/<user>/path/to/your/keystore.release
-STORE_PASSWORD=keySt0reP4s5word
-KEY_ALIAS=keyName
-KEY_PASSWORD=KeyPas5word
+STORE_FILE=/path/to/your/keystore.release
+STORE_PASSWORD=password
+KEY_ALIAS=key_name
+KEY_PASSWORD=password
 OUTPUT_DIR=
